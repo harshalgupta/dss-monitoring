@@ -89,7 +89,7 @@ monitor_process()
 #TODO: assuming we will have exactly 23 osds per node, remove this assumption
 #TODO: do not consider osds which are out
 
-osds_on_host=`ceph osd tree | grep $hostname -A 23 | grep -o osd.[0-9]* | sed s/osd.//`
+osds_on_host=`ceph osd tree | grep -w $hostname -A 23 | grep -o osd.[0-9]* | sed s/osd.//`
 
 for osd in $osds_on_host
 do
